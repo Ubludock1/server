@@ -14,8 +14,7 @@ const models = require("./models/models");
 
 const router = require('./routes/index');
 const errorHandler = require('./middleware/ErrorHandlingMiddleware');
-const filePathMiddleware = require('./middleware/filepath.middleware');
-const path = require('path');
+const filePathMiddleware = require('./middleware/filepath.middleware');;
 
 //middleware
 app.use(cors());
