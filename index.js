@@ -1,6 +1,7 @@
 require("dotenv").config();
+const config = require("config")
 const host = process.env.HOST;
-const port = process.env.PORT;
+const port = process.env.PORT || 7000;
 
 const express = require("express");
 const app = express();
@@ -13,9 +14,12 @@ const models = require("./models/models");
 
 const router = require('./routes/index');
 const errorHandler = require('./middleware/ErrorHandlingMiddleware');
+const filePathMiddleware = require('./middleware/filepath.middleware');
+const path = require('path');
 
 //middleware
 app.use(cors());
+app.use(filePathMiddleware(path.resolve(__dirname,'files')));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(fileUpload({}));
