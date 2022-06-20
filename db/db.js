@@ -3,7 +3,7 @@ const {Sequelize} = require('sequelize');
 module.exports = new Sequelize(
     "postgres",
     "postgres",
-    1,
+    "1",
     {
         dialect: 'postgres',
         host: process.env.HOST_DB,
