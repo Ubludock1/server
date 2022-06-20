@@ -2,7 +2,7 @@ const {Sequelize} = require('sequelize');
 
 module.exports = new Sequelize(
     "postgre",
-    "postgres",
+    "postgre",
     "mama33mama",
     {
         dialect: 'postgres',
