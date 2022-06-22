@@ -109,8 +109,7 @@ class DeviceController {
                             }
                         },
                         order: [
-                            ['id', 'DESC'],
-                            ['name', 'ASC'],
+                            ['id', 'ASC'],
                         ],
                     include: [
                         {
@@ -145,8 +144,7 @@ class DeviceController {
                             ],
                         },
                         order: [
-                            ['id', 'DESC'],
-                            ['name', 'ASC'],
+                            ['id', 'ASC'],
                         ],
                     include: [
                         {
