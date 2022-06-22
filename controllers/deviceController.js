@@ -121,7 +121,7 @@ class DeviceController {
                     limit,
                     offset
                 })
-
+                devices.offset = offset;
                 return res.json(devices);
             } else {
                 devices =  await Device.findAndCountAll({
