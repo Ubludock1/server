@@ -97,6 +97,7 @@ class DeviceController {
             page = page || 1;
             limit = limit || 6;
             let offset = page * limit - limit;
+            console.log(offset);
             let devices;
             if(filter === "All") {
                 devices =  await Device.findAndCountAll({
