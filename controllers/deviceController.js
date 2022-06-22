@@ -117,8 +117,8 @@ class DeviceController {
                             model: Type
                         },
                     ],
+                    offset,
                     limit,
-                    offset
                 })
 
                 return res.json(devices);
