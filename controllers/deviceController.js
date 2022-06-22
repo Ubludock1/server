@@ -101,13 +101,6 @@ class DeviceController {
             let devices;
             if(filter === "All") {
                 devices =  await Device.findAndCountAll({
-                    attributes: ["name", "price", "img", "id"],
-                    where:
-                        {
-                            name: {
-                                [Op.like]: `%${name}%`
-                            }
-                        },
                     include: [
                         {
                             attributes: ["name"],
@@ -126,21 +119,6 @@ class DeviceController {
                 return res.json(devices);
             } else {
                 devices =  await Device.findAndCountAll({
-                    attributes: ["name", "price", "img", "id", "brandId", "typeId"],
-                    where:
-                        {
-                            name: {
-                                [Op.like]: `%${name}%`
-                            },
-                            [Op.or]: [
-                                {
-                                    brandId: null,
-                                },
-                                {
-                                    typeId: null,
-                                },
-                            ],
-                        },
                     include: [
                         {
                             attributes: ["name"],
