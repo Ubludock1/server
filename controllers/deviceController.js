@@ -117,7 +117,7 @@ class DeviceController {
                         },
                     ],
                     limit,
-                    offset,
+                    offset
                 })
 
                 return res.json(devices);
@@ -149,7 +149,7 @@ class DeviceController {
                         },
                     ],
                     limit,
-                    offset,
+                    offset
                 })
 
 
