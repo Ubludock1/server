@@ -101,6 +101,17 @@ class DeviceController {
             let devices;
             if(filter === "All") {
                 devices =  await Device.findAndCountAll({
+                    attributes: ["name", "price", "img", "id"],
+                    where:
+                        {
+                            name: {
+                                [Op.like]: `%${name}%`
+                            }
+                        },
+                        order: [
+                            ['id', 'DESC'],
+                            ['name', 'ASC'],
+                        ],
                     include: [
                         {
                             attributes: ["name"],
@@ -111,14 +122,32 @@ class DeviceController {
                             model: Type
                         },
                     ],
-                    offset:offset,
-                    limit:limit,
-                    subQuery:false
+                    limit,
+                    offset,
                 })
                 devices.offset = offset;
                 return res.json(devices);
             } else {
                 devices =  await Device.findAndCountAll({
+                    attributes: ["name", "price", "img", "id", "brandId", "typeId"],
+                    where:
+                        {
+                            name: {
+                                [Op.like]: `%${name}%`
+                            },
+                            [Op.or]: [
+                                {
+                                    brandId: null,
+                                },
+                                {
+                                    typeId: null,
+                                },
+                            ],
+                        },
+                        order: [
+                            ['id', 'DESC'],
+                            ['name', 'ASC'],
+                        ],
                     include: [
                         {
                             attributes: ["name"],
@@ -129,9 +158,8 @@ class DeviceController {
                             model: Type
                         },
                     ],
-                    offset:offset,
-                    limit:limit,
-                    subQuery:false
+                    limit,
+                    offset
                 })
 
                 devices.offset = offset;
