@@ -154,7 +154,7 @@ class DeviceController {
                     offset
                 })
 
-
+                devices.offset = offset;
                 return res.json(devices);
             }
         } catch (e) {
