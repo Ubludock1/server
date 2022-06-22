@@ -96,7 +96,7 @@ class DeviceController {
 
             page = page || 1;
             limit = limit || 6;
-            let offset = page * limit - limit;
+            let offset = 0;
             let devices;
             if(filter === "All") {
                 devices =  await Device.findAndCountAll({
@@ -117,8 +117,8 @@ class DeviceController {
                             model: Type
                         },
                     ],
-                    offset,
                     limit,
+                    offset
                 })
 
                 return res.json(devices);
