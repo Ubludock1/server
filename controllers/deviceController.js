@@ -96,9 +96,10 @@ class DeviceController {
 
             page = page || 1;
             limit = limit || 6;
-            let offset = page * limit - limit
+            let offset = page * limit - limit;
+            let devices;
             if(filter === "All") {
-                const devices =  await Device.findAndCountAll({
+                devices =  await Device.findAndCountAll({
                     attributes: ["name", "price", "img", "id"],
                     where:
                         {
@@ -122,7 +123,7 @@ class DeviceController {
 
                 return res.json(devices);
             } else {
-                const devices =  await Device.findAndCountAll({
+                devices =  await Device.findAndCountAll({
                     attributes: ["name", "price", "img", "id", "brandId", "typeId"],
                     where:
                         {
