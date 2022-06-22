@@ -118,8 +118,9 @@ class DeviceController {
                             model: Type
                         },
                     ],
-                    offset,
-                    limit,
+                    offset:offset,
+                    limit:limit,
+                    subQuery:false
                 })
                 devices.offset = offset;
                 return res.json(devices);
@@ -150,8 +151,9 @@ class DeviceController {
                             model: Type
                         },
                     ],
-                    offset,
-                    limit,
+                    offset:offset,
+                    limit:limit,
+                    subQuery:false
                 })
 
                 devices.offset = offset;
